@@ -1,0 +1,5 @@
+rootProject.name = 'msa'
+
+include 'core'
+include 'user-api'
+include 'board-api'

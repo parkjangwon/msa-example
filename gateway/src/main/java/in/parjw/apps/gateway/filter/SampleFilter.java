@@ -15,6 +15,7 @@ Gateway를 구현하기 위해서는 GatewayFilterFactory를 구현해야 하며
 @Component
 public class SampleFilter extends AbstractGatewayFilterFactory<SampleFilter.Config> {
     private static final Logger logger = LogManager.getLogger(SampleFilter.class);
+
     public SampleFilter() {
         super(Config.class);
     }

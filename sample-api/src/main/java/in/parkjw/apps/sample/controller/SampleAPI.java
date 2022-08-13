@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name= "sample", description = "Swagger3 적용 예제입니다.")
+@Tag(name = "sample", description = "Swagger3 적용 예제입니다.")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value ="/api/sample/v1", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/sample/v1", produces = MediaType.APPLICATION_JSON_VALUE)
 public class SampleAPI {
 
     final SampleService sampleService;

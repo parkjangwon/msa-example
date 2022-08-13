@@ -14,4 +14,4 @@ dependencies {
 }
 
 // prepareKotlinBuildScriptModel 오류 방지
-tasks.register("prepareKotlinBuildScriptModel"){}
+tasks.register("prepareKotlinBuildScriptModel") {}

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class SpringDocsConfig {
 
     @Bean
-    public OpenAPI openAPI (@Value("${springdoc.version}") String version) {
+    public OpenAPI openAPI(@Value("${springdoc.version}") String version) {
         Info info = new Info()
                 .title("MSA Example API Document")
                 .version(version)

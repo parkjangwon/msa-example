@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "sample", description = "Swagger3 적용 예제입니다.")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/api/sample/v1", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/swaggerexample/v1", produces = MediaType.APPLICATION_JSON_VALUE)
 public class SwaggerExampleAPI {
 
     final SwaggerExampleService sampleService;
 
-    @Operation(summary = "sample api", description = "Swagger 적용 Sample API")
+    @Operation(summary = "Swagger Example API", description = "Swagger 적용 예제 API")
     @ApiDocumentResponse
     @GetMapping("test")
     public String test() {

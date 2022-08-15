@@ -13,10 +13,10 @@ Gateway를 구현하기 위해서는 GatewayFilterFactory를 구현해야 하며
 상속할 수 있는 추상 클래스가 바로 AbstractGatewayFilterFactory
  */
 @Component
-public class SampleFilter extends AbstractGatewayFilterFactory<SampleFilter.Config> {
-    private static final Logger logger = LogManager.getLogger(SampleFilter.class);
+public class SwaggerExampleFilter extends AbstractGatewayFilterFactory<SwaggerExampleFilter.Config> {
+    private static final Logger logger = LogManager.getLogger(SwaggerExampleFilter.class);
 
-    public SampleFilter() {
+    public SwaggerExampleFilter() {
         super(Config.class);
     }
 
@@ -28,13 +28,13 @@ public class SampleFilter extends AbstractGatewayFilterFactory<SampleFilter.Conf
         서비스로부터 리턴받은 응답값은 Mono.fromRunnable(()-> 구문 이후부터 얻을 수 있다.
          */
         return ((exchange, chain) -> {
-            logger.info("SampleFilter baseMessage : " + config.baseMessage);
+            logger.info("SwaggerExampleFilter baseMessage : " + config.baseMessage);
             if (config.isPreLogger()) {
-                logger.info("SampleFilter Start : " + exchange.getRequest());
+                logger.info("SwaggerExampleFilter Start : " + exchange.getRequest());
             }
             return chain.filter(exchange).then(Mono.fromRunnable(() -> {
                 if (config.isPostLogger()) {
-                    logger.info("SampleFilter End : " + exchange.getResponse());
+                    logger.info("SwaggerExampleFilter End : " + exchange.getResponse());
                 }
             }));
         });

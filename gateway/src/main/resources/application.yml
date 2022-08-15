@@ -31,13 +31,13 @@ spring:
                 baseMessage: Spring Cloud Gateway BoardFilter
                 preLogger: true
                 postLogger: true
-        - id: sample-api
+        - id: swagger-api
           uri: http://localhost:8083/
           predicates:
-            - Path=/api/sample/**
+            - Path=/api/swaggerexample/**
           filters:
-            - name: SampleFilter
+            - name: SwaggerExampleFilter
               args:
-                baseMessage: Spring Cloud Gateway SampleFilter
+                baseMessage: Spring Cloud Gateway SwaggerExampleFilter
                 preLogger: true
                 postLogger: true

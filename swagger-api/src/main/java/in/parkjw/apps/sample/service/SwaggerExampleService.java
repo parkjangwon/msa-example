@@ -7,6 +7,6 @@ public class SwaggerExampleService {
 
     public String test() {
 
-        return "Hello, Sample's API Test!";
+        return "Hello, Swagger's API Test!";
     }
 }

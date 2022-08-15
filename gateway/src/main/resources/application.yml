@@ -41,3 +41,14 @@ spring:
                 baseMessage: Spring Cloud Gateway SwaggerExampleFilter
                 preLogger: true
                 postLogger: true
+        - id: docker-api
+          uri: http://localhost:8084/
+          # uri: http://localhost:8000/ # Docker Container Port
+          predicates:
+            - Path=/api/dockerexample/**
+          filters:
+            - name: DockerExampleFilter
+              args:
+                baseMessage: Spring Cloud Gateway DockerExampleFilter
+                preLogger: true
+                postLogger: true

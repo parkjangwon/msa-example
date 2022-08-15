@@ -1,0 +1,59 @@
+plugins {
+    id 'com.google.cloud.tools.jib' version '3.2.1'
+}
+
+apply plugin: 'com.google.cloud.tools.jib'
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation project(':core')
+}
+
+bootJar {
+    enabled = true
+}
+jar {
+    enabled = true
+}
+
+// prepareKotlinBuildScriptModel 오류 방지
+tasks.register("prepareKotlinBuildScriptModel") {}
+
+// jib를 사용하여 docker image 및 container를 빌드한다.
+jib {
+    allowInsecureRegistries = true
+    from {
+        image = 'openjdk:11-jre-slim'
+    }
+    to {
+        image = "${project.name}:${project.version}"
+    }
+    container {
+        // Set JVM options.
+        jvmFlags = ['-Xms128m', '-Xdebug', '-XX:+UnlockExperimentalVMOptions']
+        mainClass = 'in.parkjw.apps.docker.DockerApp'
+        // Expose different port.
+        ports = ['8000']
+        // Add labels.
+        labels = [maintainer: 'parkjangwon']
+    }
+}
+
+// 로컬 Docker Engine 위에 container를 실행한다.
+task dockerLocalRun(){
+    doLast{
+        def imageName = "${project.name}:${project.version}"
+        def containerName = "docker-example-api"
+        def hostPort = "8000"
+        def internalPort = "8084"
+
+        exec{ commandLine "docker stop ${containerName}".split(' ') }
+        exec{ commandLine "docker rm ${containerName}".split(' ') }
+        exec{ commandLine "docker run -d -p ${hostPort}:${internalPort} --name docker-example-api ${imageName}".split(' ') }
+
+        println("==========================================================")
+        println("\nDocker Container Local Run! http://localhost:${hostPort}\n")
+        println("==========================================================")
+    }
+}

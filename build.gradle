@@ -4,13 +4,16 @@ plugins {
     id 'java'
 }
 
+allprojects {
+    group = 'in.parkjw.apps'
+    version = '0.0.1-SNAPSHOT-' + new Date().format("MMddHHmm")
+}
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
-    group = 'in.parkjw.apps'
-    version = '0.0.1-SNAPSHOT-' + new Date().format("MMddHHmm")
     sourceCompatibility = '11'
 
     repositories {

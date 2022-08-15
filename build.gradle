@@ -6,7 +6,8 @@ plugins {
 
 allprojects {
     group = 'in.parkjw.apps'
-    version = '0.0.1-SNAPSHOT-' + new Date().format("MMddHHmm")
+    // version = '0.0.1-SNAPSHOT-' + new Date().format("MMddHHmm")
+    version = '0.0.1'
 }
 
 subprojects {

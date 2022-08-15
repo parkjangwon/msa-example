@@ -13,7 +13,7 @@ public class SpringDocsConfig {
     @Bean
     public OpenAPI openAPI(@Value("${springdoc.version}") String version) {
         Info info = new Info()
-                .title("MSA Example API Document")
+                .title("Swagger Example API Document")
                 .version(version)
                 .description("API의 대한 설명을 입력해주세요")
                 .contact(new Contact()

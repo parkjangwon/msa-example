@@ -1,7 +1,7 @@
 package in.parkjw.apps.sample.controller;
 
 import in.parkjw.apps.core.annotation.ApiDocumentResponse;
-import in.parkjw.apps.sample.service.SampleService;
+import in.parkjw.apps.sample.service.SwaggerExampleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/api/sample/v1", produces = MediaType.APPLICATION_JSON_VALUE)
-public class SampleAPI {
+public class SwaggerExampleAPI {
 
-    final SampleService sampleService;
+    final SwaggerExampleService sampleService;
 
     @Operation(summary = "sample api", description = "Swagger 적용 Sample API")
     @ApiDocumentResponse

@@ -1,6 +1,18 @@
+# server
 server:
   port: 8083
+
+# spring doc
 springdoc:
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
   version: v1
+
+# spring
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration

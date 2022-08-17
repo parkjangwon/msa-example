@@ -1,4 +1,4 @@
-### simple-msa-example-with-apigateway
+### msa-example
 
 ---
 
